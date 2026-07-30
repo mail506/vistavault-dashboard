@@ -1,0 +1,49 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  background: #0e0e12;
+  color: #ede8df;
+  font-family: "Space Grotesk", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+@keyframes livepulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.2;
+  }
+}
+
+.live-dot {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #3d9e6a;
+  animation: livepulse 2s ease-in-out infinite;
+  vertical-align: middle;
+  margin-right: 4px;
+}
+
+/* recharts tooltip override */
+.recharts-default-tooltip {
+  background: #0a0a0e !important;
+  border: 1px solid #1a1a22 !important;
+  border-radius: 3px !important;
+  font-family: "JetBrains Mono", monospace !important;
+  font-size: 10px !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .live-dot {
+    animation: none;
+  }
+}
