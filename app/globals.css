@@ -47,3 +47,98 @@ body {
     animation: none;
   }
 }
+
+/* ── Responsive layout ─────────────────────────────────────────────── */
+.main-grid {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+}
+
+.hero-grid {
+  display: flex;
+  position: relative;
+}
+.hero-cell {
+  flex: 1;
+  text-align: center;
+}
+.hero-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-size: 52px;
+  line-height: 1;
+}
+.ctrl-bar {
+  display: flex;
+  align-items: center;
+  padding: 0 28px;
+  height: 42px;
+}
+.op-log-wrap {
+  border-left: 1px solid #1a1a22;
+  height: 100%;
+}
+
+@media (max-width: 768px) {
+  /* Main grid: stack charts then log */
+  .main-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Hero: 2 columns × 3 rows */
+  .hero-grid {
+    flex-wrap: wrap;
+  }
+  .hero-cell {
+    flex: none !important;
+    width: 50%;
+    min-width: 50%;
+    padding: 14px 12px 12px !important;
+  }
+  .hero-cell:nth-child(2n+1) {
+    border-right: 1px solid #1a1a22 !important;
+  }
+  .hero-cell:nth-child(2n) {
+    border-right: none !important;
+  }
+  .hero-cell:nth-child(n+3) {
+    border-top: 1px solid #1a1a22;
+  }
+  /* 5th cell: full width */
+  .hero-cell:nth-child(5) {
+    width: 100%;
+    min-width: 100%;
+    border-right: none !important;
+    border-top: 1px solid #1a1a22;
+  }
+  .hero-num {
+    font-size: 36px !important;
+  }
+
+  /* Navbar: hide secondary info */
+  .navbar-system,
+  .navbar-divider,
+  .navbar-clock {
+    display: none !important;
+  }
+  .navbar-wrap {
+    padding: 0 16px !important;
+  }
+
+  /* Control bar: wrap */
+  .ctrl-bar {
+    flex-wrap: wrap !important;
+    height: auto !important;
+    padding: 8px 16px !important;
+    gap: 8px !important;
+  }
+  .ctrl-divider {
+    display: none !important;
+  }
+
+  /* Op log: no left border, top border instead */
+  .op-log-wrap {
+    border-left: none !important;
+    border-top: 1px solid #1a1a22;
+  }
+}
