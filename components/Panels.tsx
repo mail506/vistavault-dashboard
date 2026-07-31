@@ -10,6 +10,7 @@ const SERIF = "'Cormorant Garamond', serif";
 export function Navbar({ time, dataAge }: { time: string; dataAge: string }) {
   return (
     <div
+      className="navbar-wrap"
       style={{
         display: "flex",
         alignItems: "center",
@@ -60,10 +61,10 @@ export function Navbar({ time, dataAge }: { time: string; dataAge: string }) {
       <div
         style={{ marginLeft: "auto", display: "flex", alignItems: "center", gap: 20 }}
       >
-        <span style={{ fontSize: 9, letterSpacing: ".12em", color: "#56534f" }}>
+        <span className="navbar-system" style={{ fontSize: 9, letterSpacing: ".12em", color: "#56534f" }}>
           MONITORING SYSTEM
         </span>
-        <div style={{ width: 1, height: 14, background: "#2a2a34" }} />
+        <div className="navbar-divider" style={{ width: 1, height: 14, background: "#2a2a34" }} />
         {dataAge ? (
           <span style={{ fontFamily: MONO, fontSize: 9, letterSpacing: ".1em", color: T.gold }}>
             LAST DATA {dataAge}
@@ -84,7 +85,7 @@ export function Navbar({ time, dataAge }: { time: string; dataAge: string }) {
             </span>
           </div>
         )}
-        <span style={{ fontFamily: MONO, fontSize: 11, color: "#7a7570" }}>
+        <span className="navbar-clock" style={{ fontFamily: MONO, fontSize: 11, color: "#7a7570" }}>
           {time} JST
         </span>
       </div>
@@ -112,15 +113,14 @@ function HeroCell({
 }) {
   return (
     <div
+      className="hero-cell"
       style={{
-        flex: 1,
         padding: "20px 24px 16px",
-        textAlign: "center",
         background: bg,
         borderRight: border ? `1px solid ${T.border}` : undefined,
       }}
     >
-      <div style={{ fontFamily: SERIF, fontWeight: 300, fontSize: 52, lineHeight: 1, color }}>
+      <div className="hero-num" style={{ color }}>
         {value}
       </div>
       <div
@@ -185,8 +185,8 @@ export function Hero({ latest, target }: { latest: SensorLog | null; target: num
 
   return (
     <div
+      className="hero-grid"
       style={{
-        display: "flex",
         background: T.bgHero,
         borderBottom: `1px solid ${T.border}`,
         position: "relative",
@@ -286,11 +286,8 @@ export function ControlBar({
   };
   return (
     <div
+      className="ctrl-bar"
       style={{
-        display: "flex",
-        alignItems: "center",
-        padding: "0 28px",
-        height: 42,
         background: T.bgCard,
         borderBottom: `1px solid ${T.border}`,
       }}
@@ -306,7 +303,7 @@ export function ControlBar({
         </span>
         <span style={{ fontSize: 8, color: T.txtDim }}>target</span>
       </div>
-      <div style={{ width: 1, height: 16, background: "#242430", margin: "0 20px" }} />
+      <div className="ctrl-divider" style={{ width: 1, height: 16, background: "#242430", margin: "0 20px" }} />
       <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
         <Badge label="DEHUM" state={dehum} />
         <Badge label="HUMID" state={humid} />
@@ -389,7 +386,7 @@ export function OpLog({ ops, filter }: { ops: OperationLog[]; filter: string }) 
   const items = filtered.slice(0, 30);
 
   return (
-    <div style={{ background: T.bgMain, borderLeft: `1px solid ${T.border}`, height: "100%" }}>
+    <div className="op-log-wrap" style={{ background: T.bgMain, height: "100%" }}>
       <div
         style={{
           padding: "13px 18px",
