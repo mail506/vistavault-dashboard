@@ -154,7 +154,7 @@ export default function Dashboard() {
       <ControlBar preset={preset} target={target} dehum={dehum} humid={humid} />
 
       {/* Main grid */}
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 320px", gap: 0 }}>
+      <div className="main-grid" style={{ gap: 0 }}>
         <div style={{ padding: "0 12px 20px" }}>
           <ChartLabel
             color={T.colHum}
